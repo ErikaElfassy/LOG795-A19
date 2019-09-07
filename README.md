@@ -4,3 +4,4 @@
 * Matthieu Pilon
 * Hugo Pelltier
 * Kelvin Bernadel
+* Erika Elfassy
