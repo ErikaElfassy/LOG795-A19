@@ -1,3 +1,0 @@
-C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\Definitions.Rosetta.h
-C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
