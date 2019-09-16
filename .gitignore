@@ -72,3 +72,10 @@
 
 # Cache files for the editor to use
 */DerivedDataCache/*
+PluginDevelopement/Binaries/
+
+PluginDevelopement/Intermediate/
+
+PluginDevelopement/Plugins/StateMachine/Binaries/
+
+PluginDevelopement/Plugins/StateMachine/Intermediate/

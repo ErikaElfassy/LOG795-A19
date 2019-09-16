@@ -1,7 +1,0 @@
-C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\PluginDevelopement\Intermediate\Build\Win64\UE4Editor\Development\PluginDevelopement\Definitions.PluginDevelopement.h
-C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\PluginDevelopement\Source\PluginDevelopement\PluginDevelopementGameModeBase.h
-C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\GameFramework/GameModeBase.h
-C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\Engine\Classes\Engine/ServerStatReplicator.h
-C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\ServerStatReplicator.generated.h
-C:\Program Files\Epic Games\UE_4.22\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\GameModeBase.generated.h
-C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\PluginDevelopement\Intermediate\Build\Win64\UE4Editor\Inc\PluginDevelopement\PluginDevelopementGameModeBase.generated.h

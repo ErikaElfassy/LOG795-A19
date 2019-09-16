@@ -1,3 +1,0 @@
-C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\PluginDevelopement\Intermediate\Build\Win64\UE4Editor\Development\PluginDevelopement\Definitions.PluginDevelopement.h
-C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/GeneratedCppIncludes.h
-C:\Program Files\Epic Games\UE_4.22\Engine\Source\Runtime\CoreUObject\Public\UObject/MetaData.h
