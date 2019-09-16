@@ -267,3 +267,15 @@ FHitResult ARosettaCharacter::GetFirstPhysicsBodyInReach() const
 
 	return HitResult;
 }
+
+void ARosettaCharacter::UpdateDictionary(FString OriginalWord, FString NewTranslation)
+{
+	if (Dictionary.Contains(OriginalWord))
+	{
+		Dictionary[OriginalWord] = NewTranslation;
+	}
+	else
+	{
+		Dictionary.Add(OriginalWord, NewTranslation);
+	}
+}
