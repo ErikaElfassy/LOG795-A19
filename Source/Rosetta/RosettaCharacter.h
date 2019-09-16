@@ -95,10 +95,9 @@ private:
 	bool IsCurrentlyHitInteractableDirty() const;
 	void ResetCurrentlyHitInteractable();
 
-
+	TMap<FString, FString> Dictionary;
 
 public:
-	TMap<FString, FString> Dictionary;
 	void UpdateDictionary(FString OriginalWord, FString NewTranslation);
-	//TMap<FString, FString> GetDictionary();
+	TMap<FString, FString> GetDictionary();
 };

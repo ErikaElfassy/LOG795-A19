@@ -279,3 +279,8 @@ void ARosettaCharacter::UpdateDictionary(FString OriginalWord, FString NewTransl
 		Dictionary.Add(OriginalWord, NewTranslation);
 	}
 }
+
+TMap<FString, FString> ARosettaCharacter::GetDictionary()
+{
+	return Dictionary;
+}

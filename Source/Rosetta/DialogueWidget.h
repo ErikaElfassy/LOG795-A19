@@ -58,7 +58,6 @@ class ROSETTA_API UDialogueWidget : public UUserWidget
 	UPROPERTY(meta = (BindWidget))
 	UEditableTextBox* ResponseInput;
 
-	//TMap<FString, FString> Dictionary;
 	class ARosettaCharacter* Player;
 
 public:

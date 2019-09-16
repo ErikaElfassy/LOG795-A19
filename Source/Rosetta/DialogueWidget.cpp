@@ -65,12 +65,12 @@ void UDialogueWidget::GenerateWordWidgets(FString Sentence)
 		DWW->UpdateOriginal(Word);
 		if (Player)
 		{
-			if (!Player->Dictionary.Contains(Word))
+			if (!Player->GetDictionary().Contains(Word))
 			{
 				UDialogueWidget::UpdateDictionary(Word, Word);
 			}
 
-			DWW->UpdateTranslation(Player->Dictionary[Word]);
+			DWW->UpdateTranslation(Player->GetDictionary()[Word]);
 		}
 
 		FSlateChildSize Size = FSlateChildSize(ESlateSizeRule::Fill);
@@ -157,13 +157,5 @@ void UDialogueWidget::CloseWidget()
 
 void UDialogueWidget::UpdateDictionary(FString OriginalWord, FString NewTranslation)
 {
-	//if (Dictionary.Contains(OriginalWord))
-	//{
-	//	Dictionary[OriginalWord] = NewTranslation;
-	//}
-	//else
-	//{
-	//	Dictionary.Add(OriginalWord, NewTranslation);
-	//}
 	Player->UpdateDictionary(OriginalWord, NewTranslation);
 }
