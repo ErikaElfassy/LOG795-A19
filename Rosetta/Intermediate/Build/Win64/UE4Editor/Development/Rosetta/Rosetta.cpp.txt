@@ -1,0 +1,2 @@
+C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\Definitions.Rosetta.h
+C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\Source\Rosetta\Rosetta.h

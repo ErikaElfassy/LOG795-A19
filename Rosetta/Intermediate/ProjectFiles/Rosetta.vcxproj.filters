@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\Rosetta.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{2F77D6E8-D7F2-45A3-852A-4AB42962C202}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\Rosetta.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\RosettaEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\.gitignore" />
+    <None Include="..\..\README.md" />
+    <Filter Include="Config">
+      <UniqueIdentifier>{D0063A39-EB19-4E8C-8CD6-C8577B6168E7}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\Rosetta">
+      <UniqueIdentifier>{DAEB3E81-C721-4112-850C-8E3A840775B9}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\Rosetta\DialogueWidget.cpp">
+      <Filter>Source\Rosetta</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Rosetta\DialogueWidget.h">
+      <Filter>Source\Rosetta</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Rosetta\DialogueWordWidget.cpp">
+      <Filter>Source\Rosetta</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Rosetta\DialogueWordWidget.h">
+      <Filter>Source\Rosetta</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Rosetta\InteractableActor.cpp">
+      <Filter>Source\Rosetta</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Rosetta\InteractableActor.h">
+      <Filter>Source\Rosetta</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\Rosetta\Rosetta.Build.cs">
+      <Filter>Source\Rosetta</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\Rosetta\Rosetta.cpp">
+      <Filter>Source\Rosetta</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Rosetta\Rosetta.h">
+      <Filter>Source\Rosetta</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Rosetta\RosettaCharacter.cpp">
+      <Filter>Source\Rosetta</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Rosetta\RosettaCharacter.h">
+      <Filter>Source\Rosetta</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\Rosetta\RosettaGameMode.cpp">
+      <Filter>Source\Rosetta</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\Rosetta\RosettaGameMode.h">
+      <Filter>Source\Rosetta</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,2 @@
+C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\PluginDevelopement\Plugins\StateMachine\Intermediate\Build\Win64\UE4Editor\Development\StateMachine\Definitions.StateMachine.h
+C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\PluginDevelopement\Plugins\StateMachine\Source\StateMachine\Public\StateMachine.h

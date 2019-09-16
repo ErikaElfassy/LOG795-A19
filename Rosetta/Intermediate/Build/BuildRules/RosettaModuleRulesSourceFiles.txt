@@ -1,0 +1,3 @@
+C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\Source\Rosetta\Rosetta.Build.cs
+C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\Source\Rosetta.Target.cs
+C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\Source\RosettaEditor.Target.cs

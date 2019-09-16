@@ -1,0 +1,24 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-Rosetta-1901.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\RosettaEditor\Development\Engine\SharedPCH.Engine.h.obj"
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\DialogueWidget.cpp.obj"
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\DialogueWordWidget.cpp.obj"
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\InteractableActor.cpp.obj"
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\Rosetta.cpp.obj"
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\RosettaCharacter.cpp.obj"
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\RosettaGameMode.cpp.obj"
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\DialogueWidget.gen.cpp.obj"
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\DialogueWordWidget.gen.cpp.obj"
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\InteractableActor.gen.cpp.obj"
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\Rosetta.init.gen.cpp.obj"
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\RosettaCharacter.gen.cpp.obj"
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\RosettaGameMode.gen.cpp.obj"
+"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\Default.rc2.res"
+/OUT:"C:\Users\sk8_e\Desktop\School Work\LOG795\LOG795-A19\Intermediate\Build\Win64\UE4Editor\Development\Rosetta\UE4Editor-Rosetta-1901.lib"
+/INCLUDE:IMPLEMENT_MODULE_Rosetta

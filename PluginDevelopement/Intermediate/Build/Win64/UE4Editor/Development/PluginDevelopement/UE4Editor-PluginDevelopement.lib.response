@@ -1,0 +1,16 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UE4Editor-PluginDevelopement.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\PluginDevelopement\Intermediate\Build\Win64\PluginDevelopementEditor\Development\Engine\SharedPCH.Engine.h.obj"
+"C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\PluginDevelopement\Intermediate\Build\Win64\UE4Editor\Development\PluginDevelopement\PluginDevelopement.cpp.obj"
+"C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\PluginDevelopement\Intermediate\Build\Win64\UE4Editor\Development\PluginDevelopement\PluginDevelopementGameModeBase.cpp.obj"
+"C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\PluginDevelopement\Intermediate\Build\Win64\UE4Editor\Development\PluginDevelopement\PluginDevelopement.init.gen.cpp.obj"
+"C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\PluginDevelopement\Intermediate\Build\Win64\UE4Editor\Development\PluginDevelopement\PluginDevelopementGameModeBase.gen.cpp.obj"
+"C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\PluginDevelopement\Intermediate\Build\Win64\UE4Editor\Development\PluginDevelopement\Default.rc2.res"
+/OUT:"C:\Users\Matt\Desktop\School Work\LOG795\LOG795-A19\PluginDevelopement\Intermediate\Build\Win64\UE4Editor\Development\PluginDevelopement\UE4Editor-PluginDevelopement.lib"
+/INCLUDE:IMPLEMENT_MODULE_PluginDevelopement
