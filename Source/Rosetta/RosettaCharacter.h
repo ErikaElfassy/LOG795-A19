@@ -94,4 +94,10 @@ private:
 	void OnInteractableInReachEnd();
 	bool IsCurrentlyHitInteractableDirty() const;
 	void ResetCurrentlyHitInteractable();
+
+	TMap<FString, FString> Dictionary;
+
+public:
+	void UpdateDictionary(FString OriginalWord, FString NewTranslation);
+	TMap<FString, FString> GetDictionary();
 };

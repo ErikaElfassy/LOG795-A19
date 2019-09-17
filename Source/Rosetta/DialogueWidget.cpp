@@ -8,6 +8,7 @@
 #include "Blueprint/WidgetTree.h"
 #include "DialogueWordWidget.h"
 #include "Components/HorizontalBoxSlot.h"
+#include "RosettaCharacter.h"
 
 UDialogueWidget::UDialogueWidget(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
@@ -44,6 +45,8 @@ void UDialogueWidget::Setup()
 	PlayerController->bShowMouseCursor = true;
 	UWidgetBlueprintLibrary::SetInputMode_UIOnlyEx(PlayerController);
 	ResponseInput->SetVisibility(ESlateVisibility::Hidden);
+	Player = Cast<ARosettaCharacter>(PlayerController->GetPawn());
+	if (!ensure(Player != nullptr)) return;
 }
 
 void UDialogueWidget::GenerateWordWidgets(FString Sentence)
@@ -60,13 +63,15 @@ void UDialogueWidget::GenerateWordWidgets(FString Sentence)
 		DWW->SetParentWidget(this);
 
 		DWW->UpdateOriginal(Word);
-
-		if (!Dictionary.Contains(Word))
+		if (Player)
 		{
-			UDialogueWidget::UpdateDictionary(Word, Word);
-		}
+			if (!Player->GetDictionary().Contains(Word))
+			{
+				UDialogueWidget::UpdateDictionary(Word, Word);
+			}
 
-		DWW->UpdateTranslation(Dictionary[Word]);
+			DWW->UpdateTranslation(Player->GetDictionary()[Word]);
+		}
 
 		FSlateChildSize Size = FSlateChildSize(ESlateSizeRule::Fill);
 		WordsPanel->AddChild(DWW);
@@ -152,12 +157,5 @@ void UDialogueWidget::CloseWidget()
 
 void UDialogueWidget::UpdateDictionary(FString OriginalWord, FString NewTranslation)
 {
-	if (Dictionary.Contains(OriginalWord))
-	{
-		Dictionary[OriginalWord] = NewTranslation;
-	}
-	else
-	{
-		Dictionary.Add(OriginalWord, NewTranslation);
-	}
+	Player->UpdateDictionary(OriginalWord, NewTranslation);
 }
