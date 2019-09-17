@@ -24,7 +24,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	void Interact();
+	virtual void Interact() { check(0 && "You must override this"); }
 	void SetInteractionIconVisibility(bool bIsVisible) const;
 
 private:
@@ -32,6 +32,4 @@ private:
 	UWidgetComponent* GetInteractionIcon() const;
 	void UpdateInteractionIconToFaceCam() const;
 
-	UPROPERTY()
-	TSubclassOf<class UUserWidget> DWClass;
 };
