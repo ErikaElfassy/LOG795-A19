@@ -55,11 +55,6 @@ FDictionaryEntry* UDictionary::GetEntry(FString Original) const
 			return Entry;
 		}
 	}
-=======
-FDictionaryEntry* UDictionary::GetEntry(int Index)
-{
-	if (IsIndexInRange(Index)) return Entries[Index];
->>>>>>> [WIP] started implementing dictionary
 	return nullptr;
 }
 
