@@ -311,11 +311,11 @@ void ARosettaCharacter::BeginPlay()
 	Dictionary = NewObject<UDictionary>();
 	if (ARosettaCharacter::GetDictionary().Contains(OriginalWord))
 	{
-		ARosettaCharacter::GetDictionary()[OriginalWord] = NewTranslation;
+		Dictionary[OriginalWord] = NewTranslation;
 	}
 	else
 	{
-		ARosettaCharacter::GetDictionary().Add(OriginalWord, NewTranslation);
+		Dictionary.Add(OriginalWord, NewTranslation);
 	}
 }
 
