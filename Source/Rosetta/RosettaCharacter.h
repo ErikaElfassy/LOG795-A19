@@ -99,12 +99,10 @@ private:
 	bool IsCurrentlyHitInteractableDirty() const;
 	void ResetCurrentlyHitInteractable();
 
-	TMap<FString, FString> Dictionary;
+	class UDictionary* Dictionary;
 
 public:
-
 	void UpdateDictionary(FString OriginalWord, FString NewTranslation);
-	TMap<FString, FString> GetDictionary();
 
 
 	/// DLG Dialogue
@@ -153,4 +151,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 		void ResponseResult();
+
+	void BeginPlay() override;
+	UDictionary* GetDictionary();
 };
