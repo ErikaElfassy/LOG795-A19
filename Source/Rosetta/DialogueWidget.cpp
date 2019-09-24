@@ -65,11 +65,25 @@ void UDialogueWidget::GenerateWordWidgets(FString Sentence)
 		UDialogueWordWidget* DWW = CreateWidget<UDialogueWordWidget>(GetWorld(), DWWClass);
 		if (Player)
 		{
+<<<<<<< HEAD
 			DWW->Setup(this, Player->GetDictionary(), Word);
 		}
 		else
 		{
 			GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, TEXT("No player found on DialogueWidget"));
+=======
+			UDictionary* Dict = Player->GetDictionary();
+			if (!Dict->Contains(Word))
+			{
+				Dict->AddEntry(Word, Word);
+			}
+			else
+			{
+				DWW->UpdateTranslation(Dict->GetEntry(Word)->GetTranslation());
+			}
+			DWW->UpdateTranslation(Dict->GetEntry(Word)->GetTranslation());
+
+>>>>>>> [WIP] replaced player's temporary dictionary with new dictionary, game now sometimes crashes when initiating/progressing through a conversation
 		}
 
 		// Set DWW size and position
@@ -180,6 +194,7 @@ void UDialogueWidget::UpdateDictionary(FString OriginalWord, FString NewTranslat
 {
 	Player->GetDictionary()->UpdateEntryTranslation(OriginalWord, NewTranslation);
 }
+<<<<<<< HEAD
 
 void UDialogueWidget::UpdateOption(int32 index) {
 
@@ -209,3 +224,5 @@ void UDialogueWidget::UpdateOption(int32 index) {
 		CloseWidget();
 	}
 }
+=======
+>>>>>>> [WIP] replaced player's temporary dictionary with new dictionary, game now sometimes crashes when initiating/progressing through a conversation
