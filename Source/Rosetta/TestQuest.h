@@ -47,7 +47,7 @@ public:
 USTRUCT(Blueprintable)
 struct FQuestInProgress
 {
-	GENERATED_USTRUCT_BODY()
+	GENERATED_BODY()
 
 		UPROPERTY(EditAnywhere)
 		const UTestQuest* Quest;
