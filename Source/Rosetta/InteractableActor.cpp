@@ -5,6 +5,8 @@
 #include <Engine/Engine.h>
 #include <Kismet/KismetMathLibrary.h>
 #include <Kismet/GameplayStatics.h>
+#include "RosettaCharacter.h"
+#include "InteractionIcon.h"
 
 // Sets default values
 AInteractableActor::AInteractableActor()
@@ -21,10 +23,17 @@ void AInteractableActor::BeginPlay()
 	if (FoundUIComp)
 	{
 		InteractionIcon = FoundUIComp;
+		Cast<UInteractionIcon>(GetInteractionIcon()->GetUserWidgetObject())->SetInteractionDescription(GetActionDescription());
 	}
 	else
 	{
 		FString ErrorMessage = "Interactable " + GetName() + " has no InteractionIcon!";
+		GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, ErrorMessage);
+	}
+	Player = Cast<ARosettaCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
+	if (!Player)
+	{
+		FString ErrorMessage = "Interactable " + GetName() + " has no Player!";
 		GEngine->AddOnScreenDebugMessage(-1, 3.0f, FColor::Red, ErrorMessage);
 	}
 }

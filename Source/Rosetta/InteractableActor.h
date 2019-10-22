@@ -19,6 +19,7 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
+	class ARosettaCharacter* Player;
 
 public:	
 	// Called every frame
@@ -27,7 +28,11 @@ public:
 	virtual void Interact() { check(0 && "You must override this"); }
 	void SetInteractionIconVisibility(bool bIsVisible) const;
 
+	UFUNCTION(BlueprintCallable, Category="Text")
+	virtual FText GetActionDescription() { check(0 && "You must override this"); return FText(); }
+
 private:
+	UPROPERTY()
 	UWidgetComponent* InteractionIcon;
 	UWidgetComponent* GetInteractionIcon() const;
 	void UpdateInteractionIconToFaceCam() const;
