@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "TestQuest.h"
+#include "Quest.h"
 
 
 UQuestStatus::UQuestStatus() {
@@ -40,7 +40,7 @@ void UQuestStatus::UpdateQuests(USM_InputAtom* QuestActivity) {
 	}
 }
 
-bool UQuestStatus::BeginQuest(const UTestQuest* Quest) {
+bool UQuestStatus::BeginQuest(const UQuest* Quest) {
 	for (FQuestInProgress& QIP : QuestList) {
 		if (QIP.Quest == Quest) {
 			if (QIP.QuestProgress == EQuestCompletion::EQC_NotStarted) {
@@ -60,18 +60,18 @@ bool UQuestStatus::BeginQuest(const UTestQuest* Quest) {
 	return true;
 }
 
-void UTestQuest::OnSucceeded(UQuestStatus* QuestStatus) const {
+void UQuest::OnSucceeded(UQuestStatus* QuestStatus) const {
 	UE_LOG(LogTemp, Warning, TEXT("Quest \"%s\" succeeded!"), *QuestName.ToString());
 }
 
-void UTestQuest::OnFailed(UQuestStatus* QuestStatus) const {
+void UQuest::OnFailed(UQuestStatus* QuestStatus) const {
 	UE_LOG(LogTemp, Warning, TEXT("Quest \"%s\" failed!"), *QuestName.ToString());
 }
 
 void UQuestWithResult::OnSucceeded(UQuestStatus* QuestStatus) const {
 	Super::OnSucceeded(QuestStatus);
 
-	for (UTestQuest* SuccessQuest : SucessQuests) {
+	for (UQuest* SuccessQuest : SucessQuests) {
 		QuestStatus->BeginQuest(SuccessQuest);
 	}
 
@@ -83,7 +83,7 @@ void UQuestWithResult::OnSucceeded(UQuestStatus* QuestStatus) const {
 void UQuestWithResult::OnFailed(UQuestStatus* QuestStatus) const {
 	Super::OnFailed(QuestStatus);
 
-	for (UTestQuest* FailureQuest : FailureQuests) {
+	for (UQuest* FailureQuest : FailureQuests) {
 		QuestStatus->BeginQuest(FailureQuest);
 	}
 

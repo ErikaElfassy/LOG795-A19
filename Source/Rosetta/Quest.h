@@ -6,7 +6,7 @@
 #include "Engine.h"
 #include "Components/ActorComponent.h"
 #include "SM_State.h"
-#include "TestQuest.generated.h"
+#include "Quest.generated.h"
 
 UENUM()
 enum class EQuestCompletion : uint8 {
@@ -20,7 +20,7 @@ enum class EQuestCompletion : uint8 {
  *
  */
 UCLASS()
-class ROSETTA_API UTestQuest : public UDataAsset
+class ROSETTA_API UQuest : public UDataAsset
 {
 	GENERATED_BODY()
 
@@ -50,7 +50,7 @@ struct FQuestInProgress
 	GENERATED_BODY()
 
 		UPROPERTY(EditAnywhere)
-		const UTestQuest* Quest;
+		const UQuest* Quest;
 
 	UPROPERTY(EditAnywhere)
 		EQuestCompletion QuestProgress;
@@ -82,7 +82,7 @@ public:
 		return false;
 	}
 
-	static FQuestInProgress NewQuestInProgress(const UTestQuest* _Quest) {
+	static FQuestInProgress NewQuestInProgress(const UQuest* _Quest) {
 		FQuestInProgress NewQIP;
 		NewQIP.Quest = _Quest;
 		NewQIP.QuestProgress = EQuestCompletion::EQC_Started;
@@ -106,7 +106,7 @@ public:
 		void UpdateQuests(USM_InputAtom* QuestActivity);
 
 	UFUNCTION(BlueprintCallable, Category = "Quest")
-		bool BeginQuest(const UTestQuest* Quest);
+		bool BeginQuest(const UQuest* Quest);
 
 protected:
 	UPROPERTY(EditAnywhere)
@@ -117,7 +117,7 @@ protected:
 };
 
 UCLASS()
-class ROSETTA_API UQuestWithResult : public UTestQuest {
+class ROSETTA_API UQuestWithResult : public UQuest {
 	GENERATED_BODY()
 
 public:
@@ -126,13 +126,13 @@ public:
 
 protected:
 	UPROPERTY(EditAnywhere)
-		TArray<UTestQuest*> SucessQuests;
+		TArray<UQuest*> SucessQuests;
 
 	UPROPERTY(EditAnywhere)
 		TArray<USM_InputAtom*> SuccessInputs;
 
 	UPROPERTY(EditAnywhere)
-		TArray<UTestQuest*> FailureQuests;
+		TArray<UQuest*> FailureQuests;
 
 	UPROPERTY(EditAnywhere)
 		TArray<USM_InputAtom*> FailureInputs;
