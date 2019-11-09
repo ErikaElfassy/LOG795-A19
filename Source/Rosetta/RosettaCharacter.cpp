@@ -13,6 +13,10 @@
 #include <Kismet/GameplayStatics.h>
 #include "Engine.h"
 
+#include "DlgContext.h"
+#include "DlgManager.h"
+#include "NonPlayerCharacter.h"
+
 #define OUT
 
 //////////////////////////////////////////////////////////////////////////
@@ -194,6 +198,8 @@ void ARosettaCharacter::Interact()
 	if (InteractableHit)
 	{
 		InteractableHit->Interact();
+
+		//StartDialogue(Cast<ANonPlayerCharacter>(InteractableHit)->dialogueData, Cast<ANonPlayerCharacter>(InteractableHit));
 	}
 }
 
@@ -280,7 +286,24 @@ void ARosettaCharacter::UpdateDictionary(FString OriginalWord, FString NewTransl
 	}
 }
 
+
 TMap<FString, FString> ARosettaCharacter::GetDictionary()
 {
 	return Dictionary;
+}
+
+
+// ...
+void ARosettaCharacter::StartDialogue(class UDlgDialogue* Dialogue, UObject* OtherParticipant)
+{
+	ActiveContext = UDlgManager::StartDialogue2(Dialogue, OtherParticipant, this);
+}
+
+void ARosettaCharacter::SelectDialogueOption(int32 Index)
+{
+	if (ActiveContext == nullptr || Index < 0 || Index >= ActiveContext->GetOptionNum())
+		return;
+
+	if (!ActiveContext->ChooseChild(Index))
+		ActiveContext = nullptr;
 }

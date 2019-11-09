@@ -8,8 +8,8 @@
 #include "Components/TextBlock.h"
 #include "Components/HorizontalBox.h"
 #include "Components/EditableTextBox.h"
+#include "DlgContext.h"
 #include "DialogueWidget.generated.h"
-
 /**
  * 
  */
@@ -81,7 +81,13 @@ class ROSETTA_API UDialogueWidget : public UUserWidget
 	UEditableTextBox* ResponseInput;
 
 	class ARosettaCharacter* Player;
+	class UDlgContext* ActiveContext;
 
 public:
 	void UpdateDictionary(FString OriginalWord, FString NewTranslation);
+
+	void UpdateOption(int32 index);
+
+	UFUNCTION()
+	void SetActiveContext(UDlgContext* context) { ActiveContext = context; }
 };
