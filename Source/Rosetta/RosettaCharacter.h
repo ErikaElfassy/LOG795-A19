@@ -107,6 +107,7 @@ private:
 	void ResetCurrentlyHitInteractable();
 
 	class UDictionary* Dictionary;
+	bool isDictionaryOpen;
 
 public:
 	void UpdateDictionary(FString OriginalWord, FString NewTranslation);
