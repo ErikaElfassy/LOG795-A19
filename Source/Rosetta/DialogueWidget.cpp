@@ -183,7 +183,7 @@ void UDialogueWidget::UpdateOption(int32 index) {
 	}
 
 	if (index < Player->GetActiveContext()->GetOptionNum()) {
-		if (Player->GetActiveContext()->GetActiveNodeParticipantName() != Player->GetParticipantName_Implementation()) {
+		if (Player->GetActiveContext()->GetActiveParticipantName() != Player->GetParticipantName_Implementation()) {
 			GenerateWordWidgets(Player->GetActiveContext()->GetActiveNodeText().ToString());
 		}
 		else {
