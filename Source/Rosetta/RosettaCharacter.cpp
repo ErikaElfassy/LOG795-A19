@@ -18,6 +18,9 @@
 #include "DlgContext.h"
 #include "DlgManager.h"
 
+#include <EngineGlobals.h>
+#include <Runtime/Engine/Classes/Engine/Engine.h>
+
 #define OUT
 
 //////////////////////////////////////////////////////////////////////////
@@ -56,7 +59,8 @@ ARosettaCharacter::ARosettaCharacter()
 
 	// Create Dictionary Widget and store it
 	if (wDictionary) {
-		DictionaryWidget = CreateWidget<UUserWidget>(this, wDictionary);
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Setup dictionary!"));
+		DictionaryWidget = CreateWidget<UUserWidget>(GetWorld(), wDictionary);
 	}
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
@@ -200,7 +204,9 @@ FVector ARosettaCharacter::GetReachLineEnd() const
 
 void ARosettaCharacter::OpenDictionary()
 {
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("J pressed!"));
 	if (DictionaryWidget) {
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Opening dictionary!"));
 		DictionaryWidget->AddToViewport();
 		// TODO
 		// Foreach Dictionary entries
