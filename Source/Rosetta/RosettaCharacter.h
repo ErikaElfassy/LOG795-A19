@@ -130,6 +130,6 @@ public:
 		UDlgContext* GetActiveContext() { return ActiveContext; }
 
 private:
-	UPROPERTY(BlueprintReadOnly)
-		class UDlgContext* ActiveContext = nullptr;
+
+	class UDlgContext* ActiveContext = nullptr;
 };
