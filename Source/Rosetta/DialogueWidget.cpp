@@ -91,50 +91,6 @@ void UDialogueWidget::OkayPressed()
 {
 	Player->SelectDialogueOption(DialogueStep);
 	UpdateOption(DialogueStep);
-
-	//	DialogueStep++;
-	// 	switch (DialogueStep)
-	// 	{
-	// 		case 1:
-	// 			UDialogueWidget::GenerateWordWidgets(DialogueIntroLine2);
-	// 			break;
-	// 		case 2:
-	// 			UDialogueWidget::GenerateWordWidgets(DialogueIntroLine3);
-	// 			break;
-	// 		case 3:
-	// 			// set up input
-	// 			UDialogueWidget::ActivateResponse();
-	// 			break;
-	// 		case 4:
-	// 			// true if the response was "13", "thirteen" or "zvari"
-	// 			ResponseInput->SetVisibility(ESlateVisibility::Hidden);
-	// 			if (UDialogueWidget::CompareResponse())
-	// 			{
-	// 				UDialogueWidget::GenerateWordWidgets(DialogueResponseGood);
-	// 			}
-	// 			else if (UDialogueWidget::ResponseHasNumber())
-	// 			{
-	// 				UDialogueWidget::GenerateWordWidgets(DialogueResponseBadNumber);
-	// 			}
-	// 			else
-	// 			{
-	// 				UDialogueWidget::GenerateWordWidgets(DialogueResponseBad);
-	// 			}
-	// 			break;
-	// 		case 5:
-	// 			if (UDialogueWidget::ResponseHasNumber() && !UDialogueWidget::CompareResponse())
-	// 			{
-	// 				UDialogueWidget::GenerateWordWidgets(DialogueResponseBadNumber2);
-	// 			}
-	// 			else
-	// 			{
-	// 				UDialogueWidget::CloseWidget();
-	// 			}
-	// 			break;
-	// 		case 6:
-	// 			UDialogueWidget::CloseWidget();
-	// 			break;
-	// 	}
 }
 
 void UDialogueWidget::ActivateResponse()

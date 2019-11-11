@@ -107,10 +107,6 @@ public:
 	/// DLG Dialogue
 public:
 
-
-	// 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = DlgData, meta = (AllowPrivateAccess = "true"))
-	// 		FDlgExampleDialogueData DlgData;
-
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = DlgData, meta = (AllowPrivateAccess = "true"))
 		FName DlgParticipantName = FName("MyCharacterName");
 
@@ -124,9 +120,6 @@ public:
 	bool OnDialogueEvent_Implementation(const FName& EventName) override { return false; }
 	bool CheckCondition_Implementation(const FName& ConditionName) const override { return false; }
 
-	UPROPERTY(BlueprintReadOnly)
-		class UDlgContext* ActiveContext = nullptr;
-
 	UFUNCTION(BlueprintCallable, Category = DlgSystem)
 		void StartDialogue(class UDlgDialogue* Dialogue, UObject* OtherParticipant);
 
@@ -135,4 +128,8 @@ public:
 
 	UFUNCTION()
 		UDlgContext* GetActiveContext() { return ActiveContext; }
+
+private:
+	UPROPERTY(BlueprintReadOnly)
+		class UDlgContext* ActiveContext = nullptr;
 };

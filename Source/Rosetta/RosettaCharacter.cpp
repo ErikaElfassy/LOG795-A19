@@ -15,7 +15,6 @@
 
 #include "DlgContext.h"
 #include "DlgManager.h"
-#include "NonPlayerCharacter.h"
 
 #define OUT
 
@@ -197,9 +196,7 @@ void ARosettaCharacter::Interact()
 
 	if (InteractableHit)
 	{
-		InteractableHit->Interact();
-
-		//StartDialogue(Cast<ANonPlayerCharacter>(InteractableHit)->dialogueData, Cast<ANonPlayerCharacter>(InteractableHit));
+		InteractableHit->Interact();		
 	}
 }
 

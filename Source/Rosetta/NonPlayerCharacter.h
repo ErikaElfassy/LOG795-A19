@@ -30,7 +30,7 @@ class ROSETTA_API ANonPlayerCharacter : public AInteractableActor, public IDlgDi
 	class ARosettaCharacter* player;
 
 public:
-	virtual void Interact()override;
+	virtual void Interact() override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = DialogueData)
 		FName npcName = FName("NPC_Dirk");

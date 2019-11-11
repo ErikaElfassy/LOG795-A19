@@ -14,17 +14,6 @@ ANonPlayerCharacter::ANonPlayerCharacter()
 	DWClass = DWClassFinder.Class;
 }
 
-/// Old Code from widget
-//void ANonPlayerCharacter::Interact()
-//{
-//	if (!ensure(DWClass != nullptr)) return;
-//
-//	UUserWidget* DialogueWidget = CreateWidget<UDialogueWidget>(GetWorld(), DWClass);
-//	if (!ensure(DialogueWidget != nullptr)) return;
-//
-//	DialogueWidget->AddToViewport();
-//}
-
 void ANonPlayerCharacter::Interact() {
 	UE_LOG(LogTemp, Warning, TEXT("Intreact with %s"), *GetParticipantName_Implementation().ToString());
 	player = Cast<ARosettaCharacter>(GetWorld()->GetFirstPlayerController()->GetPawn());
