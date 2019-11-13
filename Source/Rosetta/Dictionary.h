@@ -23,8 +23,9 @@ public:
 	int GetEntriesCount() const;
 	bool Contains(FString Original) const;
 	int GetEntryIndex(FString Original) const;
-	FDictionaryEntry* GetEntry(int Index) const;
-	FDictionaryEntry* GetEntry(FString Original) const;
+	UFUNCTION(BlueprintCallable, Category="Dictionary")
+	UDictionaryEntry* GetEntry(int Index) const;
+	UDictionaryEntry* GetEntry(FString Original) const;
 	void DeleteEntry(int Index);
 
 	/**
