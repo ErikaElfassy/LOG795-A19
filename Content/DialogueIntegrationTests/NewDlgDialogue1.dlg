@@ -1,0 +1,90 @@
+DlgVersion 7
+DlgName "NewDlgDialogue1"
+DlgGuid {  A -1405374352 B 1094067061 C -587776615 D -1194917805 }
+Node_Speech StartNode
+{
+	Text ""
+	SpeakerState "None"
+	bIsVirtualParent False
+	OwnerName "None"
+	bCheckChildrenOnEvaluation False
+	NodeData ""
+	VoiceSoundWave ""
+	VoiceDialogueWave ""
+	GenericData ""
+	Children { {  TargetIndex 0 Text "Next" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True } }
+}
+DlgParticipantClasses
+{
+	{  ParticipantName "FInn" ParticipantClass "" }
+	{  ParticipantName "MyCharacterName" ParticipantClass "" }
+}
+Node Nodes
+{
+	// 0
+	Node_SpeechSequence 
+	{
+		OwnerName "Finn"
+		bCheckChildrenOnEvaluation False
+		SpeechSequence
+		{
+			{
+				Speaker "Finn"
+				Text "Grany jweeb , olgada !"
+				SpeakerState "None"
+				EdgeText "Next"
+				NodeData ""
+				VoiceSoundWave ""
+				VoiceDialogueWave ""
+				GenericData ""
+			}
+			{
+				Speaker "Finn"
+				Text "A zu nasee , iko meh A pandu jojo wa saba kischmet"
+				SpeakerState "None"
+				EdgeText "Next"
+				NodeData ""
+				VoiceSoundWave ""
+				VoiceDialogueWave ""
+				GenericData ""
+			}
+			{
+				Speaker "Finn"
+				Text "sont nepi mantra . Kozo jula miki jojo jubus tom Da ?"
+				SpeakerState "None"
+				EdgeText "Next"
+				NodeData ""
+				VoiceSoundWave ""
+				VoiceDialogueWave ""
+				GenericData ""
+			}
+		}
+		InnerEdges
+		{
+			{  TargetIndex -1 Text "Next" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True }
+			{  TargetIndex -1 Text "Next" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True }
+			{  TargetIndex -1 Text "Next" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True }
+		}
+		Children { {  TargetIndex 1 Text "Next" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True } }
+	}
+	// 1
+	Node_Speech 
+	{
+		Text ""
+		SpeakerState "None"
+		bIsVirtualParent False
+		OwnerName "MyCharacterName"
+		bCheckChildrenOnEvaluation False
+		NodeData ""
+		VoiceSoundWave ""
+		VoiceDialogueWave ""
+		GenericData ""
+		Children { {  TargetIndex 2 Text "Finish" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True } }
+	}
+	// 2
+	Node_End 
+	{
+		OwnerName "Finn"
+		bCheckChildrenOnEvaluation False
+	}
+}

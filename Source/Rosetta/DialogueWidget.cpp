@@ -100,6 +100,11 @@ void UDialogueWidget::ActivateResponse()
 	ResponseInput->SetUserFocus(GetWorld()->GetFirstPlayerController());
 }
 
+void UDialogueWidget::DeactivateResponseText() {
+	WordsPanel->SetVisibility(ESlateVisibility::Visible);
+	ResponseInput->SetVisibility(ESlateVisibility::Hidden);
+}
+
 void UDialogueWidget::DeactivateResponse(const FText& InText, ETextCommit::Type InCommitType)
 {
 	if (InCommitType == ETextCommit::OnEnter)
@@ -182,6 +187,7 @@ void UDialogueWidget::UpdateOption(int32 index) {
 		return;
 	}
 
+	DeactivateResponseText();
 	if (index < Player->GetActiveContext()->GetOptionNum()) {
 		if (Player->GetActiveContext()->GetActiveParticipantName() != Player->GetParticipantName_Implementation()) {
 			GenerateWordWidgets(Player->GetActiveContext()->GetActiveNodeText().ToString());

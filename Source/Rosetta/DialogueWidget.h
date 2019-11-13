@@ -36,6 +36,9 @@ class ROSETTA_API UDialogueWidget : public UUserWidget
 	UFUNCTION()
 	void DeactivateResponse(const FText& InText, ETextCommit::Type InCommitType);
 
+	UFUNCTION()
+	void DeactivateResponseText();
+
 	bool CompareResponse();
 
 	bool ResponseHasNumber();
