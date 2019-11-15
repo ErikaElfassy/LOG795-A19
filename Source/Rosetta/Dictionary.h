@@ -21,7 +21,9 @@ private:
 
 public:
 	int GetEntriesCount() const;
+	UFUNCTION(BlueprintCallable, Category = "Dictionary")
 	bool Contains(FString Original) const;
+	UFUNCTION(BlueprintCallable, Category = "Dictionary")
 	int GetEntryIndex(FString Original) const;
 	UFUNCTION(BlueprintCallable, Category="Dictionary")
 	UDictionaryEntry* GetEntry(int Index) const;
@@ -32,10 +34,13 @@ public:
 	 * Checks if the entry currently exists. If not, adds a new entry
 	 * @returns: whether or not addition was succesful
 	 */
+	UFUNCTION(BlueprintCallable, Category = "Dictionary")
 	bool AddEntry(FString Original, FString Translation = "");
 
+	UFUNCTION(BlueprintCallable, Category = "Dictionary")
 	void ReplaceEntry(FString Original, FString Translation = "");
 
+	UFUNCTION(BlueprintCallable, Category = "Dictionary")
 	void UpdateEntryTranslation(int Index, FString NewTranslation);
 	void UpdateEntryTranslation(FString Original, FString Translation);
 
@@ -44,5 +49,6 @@ public:
 	 * If this fails, you should try to fuse the entries 
 	 * @returns: whether or not the update was successful
 	 */
+	UFUNCTION(BlueprintCallable, Category = "Dictionary")
 	bool UpdateEntryOriginal(int Index, FString NewOriginal);
 };

@@ -200,24 +200,17 @@ FVector ARosettaCharacter::GetReachLineEnd() const
 
 void ARosettaCharacter::OpenDictionary()
 {
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("J pressed!"));
 	// Create Dictionary Widget and store it
 	if (wDictionary && !DictionaryWidget) {
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Setup dictionary!"));
 		DictionaryWidget = CreateWidget<UUserWidget>(GetWorld(), wDictionary);
 	}
 	if (DictionaryWidget) {
 		if (!isDictionaryOpen) {
 			isDictionaryOpen = true;
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Opening dictionary!"));
 			DictionaryWidget->AddToViewport();
-			// TODO
-			// Foreach Dictionary entries
-			// Call custom event "AddEntry" from Dictionary Widget Class
 		}
 		else {
 			isDictionaryOpen = false;
-			GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Closing dictionary!"));
 			DictionaryWidget->RemoveFromParent();
 		}
 	}
