@@ -188,12 +188,17 @@ void UDialogueWidget::UpdateOption(int32 index) {
 	}
 
 	DeactivateResponseText();
+	if (bAnswerRequest) {
+		Player->SetInputString(ResponseInput->GetText().ToString());
+	}
+
 	if (index < Player->GetActiveContext()->GetOptionNum()) {
 		if (Player->GetActiveContext()->GetActiveParticipantName() != Player->GetParticipantName_Implementation()) {
 			GenerateWordWidgets(Player->GetActiveContext()->GetActiveNodeText().ToString());
 		}
 		else {
 			ActivateResponse();
+			bAnswerRequest = true;
 		}
 
 	}

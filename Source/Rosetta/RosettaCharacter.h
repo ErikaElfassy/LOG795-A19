@@ -8,7 +8,7 @@
 #include "DlgDialogueParticipant.h"
 #include "RosettaCharacter.generated.h"
 
-UCLASS(config = Game)
+UCLASS(config = Game, Blueprintable)
 class ARosettaCharacter : public ACharacter, public IDlgDialogueParticipant
 {
 	GENERATED_BODY()
@@ -132,4 +132,15 @@ public:
 private:
 
 	class UDlgContext* ActiveContext = nullptr;
+
+	FString InputString;
+
+public:
+	UFUNCTION(BlueprintCallable)
+		bool CompareResponse();
+
+	UPROPERTY(BlueprintReadWrite)
+		bool bAnswerPrompt = false;
+
+	void SetInputString(FString inputString) { InputString = inputString; }
 };

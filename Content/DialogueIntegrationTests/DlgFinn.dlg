@@ -83,9 +83,22 @@ Node Nodes
 		Children { {  TargetIndex 2 Text "Next" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True } }
 	}
 	// 2
+	Node_Selector 
+	{
+		SelectorType "EDlgNodeSelectorType::DlgNodeSelectorFirst"
+		OwnerName "MyCharacterName"
+		bCheckChildrenOnEvaluation True
+		EnterEvents { {  ParticipantName "MyCharacterName" EventType "EDlgEventType::DlgEventEvent" EventName "AnswerFinn" IntValue 0 FloatValue 0.0 NameValue "None" bDelta False bValue False } }
+		Children
+		{
+			{  TargetIndex 3 Text "" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True }
+			{  TargetIndex 4 Text "Next" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True }
+		}
+	}
+	// 3
 	Node_Speech 
 	{
-		Text "Greaat"
+		Text "Zvari ? Wow , juba ze ma hünt uve kischmet ! Kula jula lep julan jimji ."
 		SpeakerState "None"
 		bIsVirtualParent False
 		OwnerName "Finn"
@@ -94,9 +107,51 @@ Node Nodes
 		VoiceSoundWave ""
 		VoiceDialogueWave ""
 		GenericData ""
-		Children { {  TargetIndex 3 Text "Finish" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True } }
+		EnterConditions { {  Strength "EDlgConditionStrength::DlgConditionStrengthStrong" ConditionType "EDlgConditionType::DlgConditionClassBoolVariable" ParticipantName "MyCharacterName" CallbackName "bAnswerPrompt" Operation "EDlgOperation::DlgEqual" CompareType "EDlgCompareType::DlgCompareToConst" OtherParticipantName "None" OtherVariableName "None" IntValue 0 FloatValue 0.0 NameValue "None" bBoolValue True bLongTermMemory True } }
+		Children { {  TargetIndex 5 Text "Finish" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True } }
 	}
-	// 3
+	// 4
+	Node_SpeechSequence 
+	{
+		OwnerName "Finn"
+		bCheckChildrenOnEvaluation False
+		SpeechSequence
+		{
+			{
+				Speaker "Finn"
+				Text "Hmm , A qual ku mul e vuruzu zvarma ."
+				SpeakerState "None"
+				EdgeText "Next"
+				NodeData ""
+				VoiceSoundWave ""
+				VoiceDialogueWave ""
+				GenericData ""
+			}
+			{
+				Speaker "Finn"
+				Text "Kozo jula jojo luis , jibi miki ?"
+				SpeakerState "None"
+				EdgeText "Next"
+				NodeData ""
+				VoiceSoundWave ""
+				VoiceDialogueWave ""
+				GenericData ""
+			}
+		}
+		InnerEdges
+		{
+			{  TargetIndex -1 Text "Next" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True }
+			{  TargetIndex -1 Text "Next" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True }
+		}
+		Children { {  TargetIndex 6 Text "Finish" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True } }
+	}
+	// 5
+	Node_End 
+	{
+		OwnerName "Finn"
+		bCheckChildrenOnEvaluation False
+	}
+	// 6
 	Node_End 
 	{
 		OwnerName "Finn"

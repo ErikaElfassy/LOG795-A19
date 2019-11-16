@@ -39,7 +39,7 @@ class ROSETTA_API UDialogueWidget : public UUserWidget
 	UFUNCTION()
 	void DeactivateResponseText();
 
-	bool CompareResponse();
+
 
 	bool ResponseHasNumber();
 
@@ -86,6 +86,8 @@ class ROSETTA_API UDialogueWidget : public UUserWidget
 	class ARosettaCharacter* Player;
 	class UDlgContext* ActiveContext;
 
+	bool bAnswerRequest = false;
+
 public:
 	void UpdateDictionary(FString OriginalWord, FString NewTranslation);
 
@@ -93,4 +95,7 @@ public:
 
 	UFUNCTION()
 	void SetActiveContext(UDlgContext* context) { ActiveContext = context; }
+
+	UFUNCTION(BlueprintCallable)
+	bool CompareResponse();
 };
