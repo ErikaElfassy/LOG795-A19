@@ -1,5 +1,5 @@
 DlgVersion 7
-DlgName "NewDlgDialogue1"
+DlgName "DlgFinn"
 DlgGuid {  A -1405374352 B 1094067061 C -587776615 D -1194917805 }
 Node_Speech StartNode
 {
@@ -16,8 +16,8 @@ Node_Speech StartNode
 }
 DlgParticipantClasses
 {
-	{  ParticipantName "FInn" ParticipantClass "" }
-	{  ParticipantName "MyCharacterName" ParticipantClass "" }
+	{  ParticipantName "FInn" ParticipantClass "/Game/Blueprints/MyRosettaCharacter.MyRosettaCharacter_C" }
+	{  ParticipantName "MyCharacterName" ParticipantClass "/Game/Blueprints/MyRosettaCharacter.MyRosettaCharacter_C" }
 }
 Node Nodes
 {
@@ -65,6 +65,7 @@ Node Nodes
 			{  TargetIndex -1 Text "Next" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True }
 			{  TargetIndex -1 Text "Next" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True }
 		}
+		EnterEvents { {  ParticipantName "MyCharacterName" EventType "EDlgEventType::DlgEventEvent" EventName "TalkToFinn" IntValue 0 FloatValue 0.0 NameValue "None" bDelta False bValue False } }
 		Children { {  TargetIndex 1 Text "Next" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True } }
 	}
 	// 1
@@ -79,9 +80,23 @@ Node Nodes
 		VoiceSoundWave ""
 		VoiceDialogueWave ""
 		GenericData ""
-		Children { {  TargetIndex 2 Text "Finish" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True } }
+		Children { {  TargetIndex 2 Text "Next" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True } }
 	}
 	// 2
+	Node_Speech 
+	{
+		Text "Greaat"
+		SpeakerState "None"
+		bIsVirtualParent False
+		OwnerName "Finn"
+		bCheckChildrenOnEvaluation False
+		NodeData ""
+		VoiceSoundWave ""
+		VoiceDialogueWave ""
+		GenericData ""
+		Children { {  TargetIndex 3 Text "Finish" SpeakerState "None" bIncludeInAllOptionListIfUnsatisfied True } }
+	}
+	// 3
 	Node_End 
 	{
 		OwnerName "Finn"
