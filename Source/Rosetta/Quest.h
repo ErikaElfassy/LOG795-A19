@@ -105,8 +105,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Quests")
 		void UpdateQuests(USM_InputAtom* QuestActivity);
 
-	UFUNCTION(BlueprintCallable, Category = "Quest")
+	UFUNCTION(BlueprintCallable, Category = "Quests")
 		bool BeginQuest(const UQuest* Quest);
+
+	UFUNCTION(BlueprintCallable, Category = "Quests")
+		bool QuestIsCompleted(const UQuest* Quest);
 
 protected:
 	UPROPERTY(EditAnywhere)
