@@ -6,6 +6,9 @@
 #include "GameFramework/Character.h"
 #include "InteractableActor.h"
 #include "DlgDialogueParticipant.h"
+
+#include "DialogueWidget.h"
+
 #include "RosettaCharacter.generated.h"
 
 UCLASS(config = Game, Blueprintable)
@@ -143,4 +146,11 @@ public:
 		bool bAnswerPrompt = false;
 
 	void SetInputString(FString inputString) { InputString = inputString; }
+
+	FString GetInputString() { return InputString; }
+
+	UDialogueWidget* widget = nullptr;
+
+	UFUNCTION(BlueprintCallable)
+		void ResponseResult();
 };

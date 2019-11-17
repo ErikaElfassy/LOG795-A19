@@ -31,6 +31,7 @@ bool UDialogueWidget::Initialize()
 	UDialogueWidget::Setup();
 
 	UpdateOption(DialogueStep);
+	Player->widget = this;
 
 	return true;
 }
@@ -183,26 +184,28 @@ void UDialogueWidget::UpdateDictionary(FString OriginalWord, FString NewTranslat
 void UDialogueWidget::UpdateOption(int32 index) {
 
 	if (Player->GetActiveContext() == nullptr) {
+		Player->widget = nullptr;
 		CloseWidget();
 		return;
 	}
 
 	DeactivateResponseText();
-	if (bAnswerRequest) {
-		Player->SetInputString(ResponseInput->GetText().ToString());
-	}
-
 	if (index < Player->GetActiveContext()->GetOptionNum()) {
+
 		if (Player->GetActiveContext()->GetActiveParticipantName() != Player->GetParticipantName_Implementation()) {
 			GenerateWordWidgets(Player->GetActiveContext()->GetActiveNodeText().ToString());
 		}
 		else {
 			ActivateResponse();
-			bAnswerRequest = true;
 		}
 
+// 		if (!ResponseInput->GetText().ToString().IsEmpty())
+// 		{
+// 			Player->SetInputString(ResponseInput->GetText().ToString());
+// 		}
 	}
 	else {
+		Player->widget = nullptr;
 		CloseWidget();
 	}
 }

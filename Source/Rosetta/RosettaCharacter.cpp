@@ -310,3 +310,7 @@ bool ARosettaCharacter::CompareResponse() {
 
 	return bAnswerPrompt;
 }
+
+void ARosettaCharacter::ResponseResult() {
+	InputString = widget->ResponseInput->GetText().ToString();
+}
