@@ -13,6 +13,9 @@
 #include <Kismet/GameplayStatics.h>
 #include "Engine.h"
 
+#include "DlgContext.h"
+#include "DlgManager.h"
+
 #define OUT
 
 //////////////////////////////////////////////////////////////////////////
@@ -94,12 +97,12 @@ void ARosettaCharacter::OnResetVR()
 
 void ARosettaCharacter::TouchStarted(ETouchIndex::Type FingerIndex, FVector Location)
 {
-		Jump();
+	Jump();
 }
 
 void ARosettaCharacter::TouchStopped(ETouchIndex::Type FingerIndex, FVector Location)
 {
-		StopJumping();
+	StopJumping();
 }
 
 void ARosettaCharacter::TurnAtRate(float Rate)
@@ -130,12 +133,12 @@ void ARosettaCharacter::MoveForward(float Value)
 
 void ARosettaCharacter::MoveRight(float Value)
 {
-	if ( (Controller != NULL) && (Value != 0.0f) )
+	if ((Controller != NULL) && (Value != 0.0f))
 	{
 		// find out which way is right
 		const FRotator Rotation = Controller->GetControlRotation();
 		const FRotator YawRotation(0, Rotation.Yaw, 0);
-	
+
 		// get right vector 
 		const FVector Direction = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Y);
 		// add movement in that direction
@@ -224,7 +227,7 @@ void ARosettaCharacter::ResetCurrentlyHitInteractable()
 	CurrentlyHitInteractable = nullptr;
 }
 
-void ARosettaCharacter::Tick(float DeltaTime) { 
+void ARosettaCharacter::Tick(float DeltaTime) {
 	Super::Tick(DeltaTime);
 
 	AInteractableActor* InteractableHit = Cast<AInteractableActor>(ARosettaCharacter::GetFirstPhysicsBodyInReach().GetActor());
@@ -280,7 +283,34 @@ void ARosettaCharacter::UpdateDictionary(FString OriginalWord, FString NewTransl
 	}
 }
 
+
 TMap<FString, FString> ARosettaCharacter::GetDictionary()
 {
 	return Dictionary;
+}
+
+
+// ...
+void ARosettaCharacter::StartDialogue(class UDlgDialogue* Dialogue, UObject* OtherParticipant)
+{
+	ActiveContext = UDlgManager::StartDialogue2(Dialogue, OtherParticipant, this);
+}
+
+void ARosettaCharacter::SelectDialogueOption(int32 Index)
+{
+	if (ActiveContext == nullptr || Index < 0 || Index >= ActiveContext->GetOptionNum())
+		return;
+
+	if (!ActiveContext->ChooseChild(Index))
+		ActiveContext = nullptr;
+}
+
+bool ARosettaCharacter::CompareResponse() {
+	bAnswerPrompt = InputString.Contains("13") || InputString.Contains("thirteen") || InputString.Contains("zvari") ? true : false;
+
+	return bAnswerPrompt;
+}
+
+void ARosettaCharacter::ResponseResult() {
+	InputString = widget->ResponseInput->GetText().ToString();
 }

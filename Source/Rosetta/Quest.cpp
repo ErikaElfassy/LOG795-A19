@@ -60,6 +60,23 @@ bool UQuestStatus::BeginQuest(const UQuest* Quest) {
 	return true;
 }
 
+bool UQuestStatus::QuestIsCompleted(const UQuest* Quest) {
+	for (FQuestInProgress& QIP : QuestList) {
+		if (QIP.Quest == Quest) {
+			UE_LOG(LogTemp, Warning, TEXT("Quest \"%s\" is being checked for completion status."), *QIP.Quest->QuestName.ToString());
+			if (QIP.QuestProgress == EQuestCompletion::EQC_Succeded) {
+				UE_LOG(LogTemp, Warning, TEXT("Quest \"%s\" has been completed."), *QIP.Quest->QuestName.ToString());
+				return true;
+			}
+			else {
+				UE_LOG(LogTemp, Warning, TEXT("Quest \"%s\" is still in started status."), *QIP.Quest->QuestName.ToString());
+				return false; 
+			}
+		}
+	}
+	return false;
+}
+
 void UQuest::OnSucceeded(UQuestStatus* QuestStatus) const {
 	UE_LOG(LogTemp, Warning, TEXT("Quest \"%s\" succeeded!"), *QuestName.ToString());
 }

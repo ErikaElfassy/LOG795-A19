@@ -28,23 +28,23 @@ bool UDialogueWidget::Initialize()
 	Super::Initialize();
 	OkayButton->OnClicked.AddDynamic(this, &UDialogueWidget::OkayPressed);
 	ResponseInput->OnTextCommitted.AddDynamic(this, &UDialogueWidget::DeactivateResponse);
-	
 	UDialogueWidget::Setup();
 
-	UDialogueWidget::GenerateWordWidgets(DialogueIntroLine);
+	UpdateOption(DialogueStep);
+	Player->widget = this;
+
 	return true;
 }
 
 void UDialogueWidget::Setup()
 {
-	DialogueStep = 0;
-
 	UWorld* World = GetWorld();
 	APlayerController* PlayerController = World->GetFirstPlayerController();
 	if (!ensure(PlayerController != nullptr)) return;
 	PlayerController->bShowMouseCursor = true;
 	UWidgetBlueprintLibrary::SetInputMode_UIOnlyEx(PlayerController);
 	ResponseInput->SetVisibility(ESlateVisibility::Hidden);
+
 	Player = Cast<ARosettaCharacter>(PlayerController->GetPawn());
 	if (!ensure(Player != nullptr)) return;
 }
@@ -90,50 +90,8 @@ void UDialogueWidget::GenerateWordWidgets(FString Sentence)
 
 void UDialogueWidget::OkayPressed()
 {
-	DialogueStep++;
-
-	switch (DialogueStep)
-	{
-		case 1:
-			UDialogueWidget::GenerateWordWidgets(DialogueIntroLine2);
-			break;
-		case 2:
-			UDialogueWidget::GenerateWordWidgets(DialogueIntroLine3);
-			break;
-		case 3:
-			// set up input
-			UDialogueWidget::ActivateResponse();
-			break;
-		case 4:
-			// true if the response was "13", "thirteen" or "zvari"
-			ResponseInput->SetVisibility(ESlateVisibility::Hidden);
-			if (UDialogueWidget::CompareResponse())
-			{
-				UDialogueWidget::GenerateWordWidgets(DialogueResponseGood);
-			}
-			else if (UDialogueWidget::ResponseHasNumber())
-			{
-				UDialogueWidget::GenerateWordWidgets(DialogueResponseBadNumber);
-			}
-			else
-			{
-				UDialogueWidget::GenerateWordWidgets(DialogueResponseBad);
-			}
-			break;
-		case 5:
-			if (UDialogueWidget::ResponseHasNumber() && !UDialogueWidget::CompareResponse())
-			{
-				UDialogueWidget::GenerateWordWidgets(DialogueResponseBadNumber2);
-			}
-			else
-			{
-				UDialogueWidget::CloseWidget();
-			}
-			break;
-		case 6:
-			UDialogueWidget::CloseWidget();
-			break;
-	}
+	Player->SelectDialogueOption(DialogueStep);
+	UpdateOption(DialogueStep);
 }
 
 void UDialogueWidget::ActivateResponse()
@@ -141,6 +99,11 @@ void UDialogueWidget::ActivateResponse()
 	WordsPanel->SetVisibility(ESlateVisibility::Hidden);
 	ResponseInput->SetVisibility(ESlateVisibility::Visible);
 	ResponseInput->SetUserFocus(GetWorld()->GetFirstPlayerController());
+}
+
+void UDialogueWidget::DeactivateResponseText() {
+	WordsPanel->SetVisibility(ESlateVisibility::Visible);
+	ResponseInput->SetVisibility(ESlateVisibility::Hidden);
 }
 
 void UDialogueWidget::DeactivateResponse(const FText& InText, ETextCommit::Type InCommitType)
@@ -155,7 +118,7 @@ void UDialogueWidget::DeactivateResponse(const FText& InText, ETextCommit::Type 
 bool UDialogueWidget::CompareResponse()
 {
 	FString s = ResponseInput->GetText().ToString();
-	
+
 	if (s.Contains("13") || s.Contains("thirteen") || s.Contains("zvari"))
 	{
 		return true;
@@ -216,4 +179,33 @@ void UDialogueWidget::CloseWidget()
 void UDialogueWidget::UpdateDictionary(FString OriginalWord, FString NewTranslation)
 {
 	Player->UpdateDictionary(OriginalWord, NewTranslation);
+}
+
+void UDialogueWidget::UpdateOption(int32 index) {
+
+	if (Player->GetActiveContext() == nullptr) {
+		Player->widget = nullptr;
+		CloseWidget();
+		return;
+	}
+
+	DeactivateResponseText();
+	if (index < Player->GetActiveContext()->GetOptionNum()) {
+
+		if (Player->GetActiveContext()->GetActiveParticipantName() != Player->GetParticipantName_Implementation()) {
+			GenerateWordWidgets(Player->GetActiveContext()->GetActiveNodeText().ToString());
+		}
+		else {
+			ActivateResponse();
+		}
+
+// 		if (!ResponseInput->GetText().ToString().IsEmpty())
+// 		{
+// 			Player->SetInputString(ResponseInput->GetText().ToString());
+// 		}
+	}
+	else {
+		Player->widget = nullptr;
+		CloseWidget();
+	}
 }

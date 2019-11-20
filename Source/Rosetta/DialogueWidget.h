@@ -8,17 +8,17 @@
 #include "Components/TextBlock.h"
 #include "Components/HorizontalBox.h"
 #include "Components/EditableTextBox.h"
+#include "DlgContext.h"
 #include "DialogueWidget.generated.h"
-
 /**
- * 
+ *
  */
 UCLASS()
 class ROSETTA_API UDialogueWidget : public UUserWidget
 {
 	GENERATED_BODY()
 
-	UDialogueWidget(const FObjectInitializer& ObjectInitializer);
+		UDialogueWidget(const FObjectInitializer& ObjectInitializer);
 
 	virtual void NativeConstruct() override;
 
@@ -29,27 +29,30 @@ class ROSETTA_API UDialogueWidget : public UUserWidget
 	void GenerateWordWidgets(FString Sentence);
 
 	UFUNCTION()
-	void OkayPressed();
+		void OkayPressed();
 
 	void ActivateResponse();
 
 	UFUNCTION()
-	void DeactivateResponse(const FText& InText, ETextCommit::Type InCommitType);
+		void DeactivateResponse(const FText& InText, ETextCommit::Type InCommitType);
 
-	bool CompareResponse();
+	UFUNCTION()
+		void DeactivateResponseText();
+
+
 
 	bool ResponseHasNumber();
 
 	void CloseWidget();
 
 	UPROPERTY(meta = (BindWidget))
-	UButton* OkayButton;
+		UButton* OkayButton;
 
 	UPROPERTY(meta = (BindWidget))
-	UHorizontalBox* WordsPanel;
+		UHorizontalBox* WordsPanel;
 
 	UPROPERTY()
-	TSubclassOf<class UUserWidget> DWWClass;
+		TSubclassOf<class UUserWidget> DWWClass;
 
 	//FString DialogueIntroLine = "Hello there , stranger !";
 	//FString DialogueIntroLine2 = "I am blind , and so I cannot count how many buildings";
@@ -76,12 +79,26 @@ class ROSETTA_API UDialogueWidget : public UUserWidget
 	//FString DialogueResponseBadNumber2 = "Could jula jojo again , pretty please ?";
 
 	int DialogueStep;
-	
+
+	class ARosettaCharacter* Player;
+	class UDlgContext* ActiveContext;
+
+	bool bAnswerRequest = false;
+
+public:
+
 	UPROPERTY(meta = (BindWidget))
 	UEditableTextBox* ResponseInput;
 
-	class ARosettaCharacter* Player;
-
-public:
 	void UpdateDictionary(FString OriginalWord, FString NewTranslation);
+
+	void UpdateOption(int32 index);
+
+	UFUNCTION()
+		void SetActiveContext(UDlgContext* context) { ActiveContext = context; }
+
+	UFUNCTION(BlueprintCallable)
+		bool CompareResponse();
+
+	
 };

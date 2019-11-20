@@ -4,23 +4,42 @@
 
 #include "CoreMinimal.h"
 #include "InteractableActor.h"
+#include "DlgDialogueParticipant.h"
+#include "DlgDialogue.h"
+#include "RosettaCharacter.h"
 #include "NonPlayerCharacter.generated.h"
 
 /**
- * 
+ *
  */
 UCLASS()
-class ROSETTA_API ANonPlayerCharacter : public AInteractableActor
+class ROSETTA_API ANonPlayerCharacter : public AInteractableActor, public IDlgDialogueParticipant
 {
 	GENERATED_BODY()
 
-	ANonPlayerCharacter();
-		
+		ANonPlayerCharacter();
+
 	UPROPERTY()
-	TSubclassOf<class UUserWidget> DWClass;
-	
-	virtual void Interact() override;
+		TSubclassOf<class UUserWidget> DWClass;
+
+
 
 	//UFUNCTION(BlueprintGetter)
 	virtual FText GetActionDescription() override;
+
+	class ARosettaCharacter* player;
+
+public:
+	virtual void Interact() override;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = DialogueData)
+		FName npcName = FName("NPC_Dirk");
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = DialogueData)
+		UDlgDialogue* dialogueData;
+
+	FName GetParticipantName_Implementation() const override { return npcName; };
+
+
+
 };
