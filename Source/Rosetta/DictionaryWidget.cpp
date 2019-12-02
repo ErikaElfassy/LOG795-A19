@@ -4,6 +4,6 @@
 #include "DictionaryWidget.h"
 
 
-void AddNewEntry(FText original, FText translation) {
-
-}
+//void AddNewEntry(FText original, FText translation) {
+//
+//}

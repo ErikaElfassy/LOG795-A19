@@ -13,7 +13,7 @@ UCLASS()
 class ROSETTA_API UDictionaryWidget : public UUserWidget
 {
 	GENERATED_BODY()
-
-		UFUNCTION(BlueprintImplementableEvent, meta = (FriendlyName = "AddNewEntry"))
-		void AddNewEntry(FText original, FText translation);
+//public:
+//		UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "AddNewEntry"))
+//		void AddNewEntry(FText original, FText translation);
 };

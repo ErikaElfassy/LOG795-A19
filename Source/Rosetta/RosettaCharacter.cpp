@@ -302,14 +302,14 @@ void ARosettaCharacter::BeginPlay()
 	Super::BeginPlay();
 
 	Dictionary = NewObject<UDictionary>();
-	if (ARosettaCharacter::GetDictionary().Contains(OriginalWord))
-	{
-		Dictionary[OriginalWord] = NewTranslation;
-	}
-	else
-	{
-		Dictionary.Add(OriginalWord, NewTranslation);
-	}
+	//if (ARosettaCharacter::GetDictionary().Contains(OriginalWord))
+	//{
+	//	Dictionary[OriginalWord] = NewTranslation;
+	//}
+	//else
+	//{
+	//	Dictionary.Add(OriginalWord, NewTranslation);
+	//}
 }
 
 UDictionary* ARosettaCharacter::GetDictionary()

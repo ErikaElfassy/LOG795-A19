@@ -161,5 +161,6 @@ public:
 		void ResponseResult();
 
 	void BeginPlay() override;
+	UFUNCTION(BlueprintCallable)
 	UDictionary* GetDictionary();
 };

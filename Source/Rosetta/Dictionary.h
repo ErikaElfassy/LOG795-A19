@@ -15,11 +15,12 @@ class ROSETTA_API UDictionary : public UObject
 	GENERATED_BODY()
 
 private:
-	TArray<struct FDictionaryEntry*> Entries;
+	TArray<UDictionaryEntry*> Entries;
 
 	bool IsIndexInRange(int Index) const;
 
 public:
+	UFUNCTION(BlueprintCallable, Category = "Dictionary")
 	int GetEntriesCount() const;
 	UFUNCTION(BlueprintCallable, Category = "Dictionary")
 	bool Contains(FString Original) const;
